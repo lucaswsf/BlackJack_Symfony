@@ -1,0 +1,106 @@
+<?php
+
+namespace Acme\BlackJackBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Round
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Round
+{
+    /**
+     * @ORM\OneToMany(targetEntity="Revealed", mappedBy="round")
+     **/
+    protected $revealed;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Game", inversedBy="round")
+     * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
+     **/
+    protected $game;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="won", type="boolean")
+     */
+    private $won;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bet", type="string", length=255)
+     */
+    private $bet;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set won
+     *
+     * @param boolean $won
+     * @return Round
+     */
+    public function setWon($won)
+    {
+        $this->won = $won;
+
+        return $this;
+    }
+
+    /**
+     * Get won
+     *
+     * @return boolean 
+     */
+    public function getWon()
+    {
+        return $this->won;
+    }
+
+    /**
+     * Set bet
+     *
+     * @param string $bet
+     * @return Round
+     */
+    public function setBet($bet)
+    {
+        $this->bet = $bet;
+
+        return $this;
+    }
+
+    /**
+     * Get bet
+     *
+     * @return string 
+     */
+    public function getBet()
+    {
+        return $this->bet;
+    }
+}

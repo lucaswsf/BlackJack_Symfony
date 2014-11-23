@@ -1,0 +1,3 @@
+acme_black_jack:
+    resource: "@AcmeBlackJackBundle/Resources/config/routing.yml"
+    prefix:   /

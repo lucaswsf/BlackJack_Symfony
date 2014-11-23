@@ -1,0 +1,11 @@
+get_black_jack_homepage:
+    path:    /
+    defaults: { _controller: AcmeBlackJackBundle:Default:index }
+    requirements:
+        _method: GET
+
+blackjack_game:
+    path:   /blackjack_game
+    defaults: { _controller: AcmeBlackJackBundle:Game:Play }
+    requirements:
+        _method: GET
